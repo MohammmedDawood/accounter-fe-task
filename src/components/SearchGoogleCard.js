@@ -10,7 +10,6 @@ const SearchGoogleCard = () => {
 
   //  set search keyword in input
   const searchforKeyword = (event) => {
-    console.log(event.target.value);
     setKeyword(event.target.value);
   };
 
@@ -26,7 +25,6 @@ const SearchGoogleCard = () => {
             error.response.data.message) ||
           error.message ||
           error.toString();
-        console.log(_content);
         setContent(_content);
 
         if (error.response && error.response.status === 401) {
@@ -39,35 +37,31 @@ const SearchGoogleCard = () => {
   useEffect(() => {
     // debounce or throttle search key word
     const delayDebounceFn = setTimeout(() => {
-      if (keyword) {
+      if (keyword && keyword.trim().length > 0) {
         // make a request to node to search for the keyword
-        console.log("Set description");
-        UserService.getSearchResult(keyword).then(
+        UserService.getSearchResult(keyword.trim()).then(
           (response) => {
             console.log(response.data);
+            setDescription(response.data.description);
           },
           (error) => {
-            console.log(error);
             const _content =
               (error.response &&
                 error.response.data &&
                 error.response.data.message) ||
               error.message ||
               error.toString();
-            console.log(_content);
-            setContent(_content);
+            setDescription(_content);
           }
         );
       }
-    }, 1000);
+    }, 2000);
 
     return () => clearTimeout(delayDebounceFn);
   }, [keyword]);
 
   const onSubmit = (event) => {
     event.preventDefault();
-    console.log("keyword: " + keyword);
-    console.log("description: " + description);
   };
   const clearHelperFun = () => {
     // reset form
@@ -77,7 +71,7 @@ const SearchGoogleCard = () => {
 
   return (
     <div>
-      <header className="jumbotron">
+      <header className="jumbotron mt-3">
         <h3>{content}</h3>
       </header>
       <div className="border border-dark mt-4 p-3 rounded-3">
