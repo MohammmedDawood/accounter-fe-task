@@ -34,13 +34,15 @@ const SearchGoogleCard = () => {
         }
       }
     );
+  }, []);
 
+  useEffect(() => {
     // debounce or throttle search key word
     const delayDebounceFn = setTimeout(() => {
       if (keyword) {
         // make a request to node to search for the keyword
         console.log("Set description");
-        UserService.getSearchResult().then(
+        UserService.getSearchResult(keyword).then(
           (response) => {
             console.log(response.data);
           },

@@ -32,6 +32,9 @@ const UserInfoCard = () => {
         <p>
           <strong>Email:</strong> {currentUser.email}
         </p>
+        <p>
+          <strong>CreatedAt:</strong> {currentUser.createdAt}
+        </p>
         <strong>Authorities:</strong>
         <ul>
           {currentUser.roles &&

@@ -7,11 +7,10 @@ const getUserBoard = () => {
   return axios.get(API_URL + "user", { headers: authHeader() });
 };
 const getSearchResult = (keyword) => {
-  return axios.get(
-    API_URL + "search",
-    { params: { keyword } },
-    { headers: authHeader() }
-  );
+  return axios.get(API_URL + "search", {
+    headers: authHeader(),
+    params: { keyword },
+  });
 };
 const userServicesObject = {
   getUserBoard,
