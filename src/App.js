@@ -57,7 +57,7 @@ const App = () => {
                 </Link>
               </li>
               <li className="nav-item">
-                <a href="/login" className="nav-link" onClick={logOut}>
+                <a href="/" className="nav-link" onClick={logOut}>
                   LogOut
                 </a>
               </li>
@@ -65,7 +65,7 @@ const App = () => {
           ) : (
             <div className="navbar-nav ml-auto">
               <li className="nav-item">
-                <Link to={"/login"} className="nav-link">
+                <Link to={"/"} className="nav-link">
                   Login
                 </Link>
               </li>
@@ -81,11 +81,9 @@ const App = () => {
 
         <div className="container bg-white p-4 mt-5">
           <Routes>
-            <Route exact path="/" element={<Login />} />
-            <Route exact path="/login" element={<Login />} />
+            <Route exact index path="/" element={<Login />} />
             <Route exact path="/register" element={<Register />} />
             <Route exact path="/profile" element={<Profile />} />
-            <Route path="/user" element={<SearchGoogleCard />} />
           </Routes>
         </div>
 
