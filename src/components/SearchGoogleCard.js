@@ -62,6 +62,7 @@ const SearchGoogleCard = () => {
 
   const onSubmit = (event) => {
     event.preventDefault();
+    //todo: add search result to the database
   };
   const clearHelperFun = () => {
     // reset form
