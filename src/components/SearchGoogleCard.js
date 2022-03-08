@@ -41,7 +41,6 @@ const SearchGoogleCard = () => {
         // make a request to node to search for the keyword
         UserService.getSearchResult(keyword.trim()).then(
           (response) => {
-            console.log(response.data);
             setDescription(response.data.description);
           },
           (error) => {
