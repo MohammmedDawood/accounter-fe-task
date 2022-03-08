@@ -8,7 +8,6 @@ import "./App.css";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import Profile from "./components/Profile";
-import SearchGoogleCard from "./components/SearchGoogleCard";
 
 import { logout } from "./actions/auth";
 import { clearMessage } from "./actions/message";

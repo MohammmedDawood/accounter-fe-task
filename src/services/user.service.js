@@ -1,10 +1,8 @@
 import axios from "axios";
 import authHeader from "./auth-header";
+import { API_LINK } from "../helpers/url";
 
-//development
-// const API_URL = "http://localhost:8080/api/test/";
-//production
-const API_URL = "https://accounter-task.herokuapp.com/api/test/";
+const API_URL = API_LINK + "api/test/";
 
 const getUserBoard = () => {
   return axios.get(API_URL + "user", { headers: authHeader() });
