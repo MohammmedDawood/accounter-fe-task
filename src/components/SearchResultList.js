@@ -1,42 +1,126 @@
-import React, { useEffect, useState } from "react";
-import SearchResultListItem from "./SearchResultListItem";
-import { useSelector, useDispatch } from "react-redux";
-import { getTodosAsync } from "../redux/todoSlice";
+import React from "react";
+import Table from "./Table";
 
 const SearchResultList = () => {
   // Dummy data
-  let todos = [
+  let searchresults = [
     {
       id: 1,
       title: "Software Engineer",
-      description: "create react project",
+      description: "create react project a",
     },
     {
       id: 2,
       title: "Software",
-      description: "create react project",
+      description: "create react project b",
     },
     {
       id: 3,
       title: "Engineer",
-      description: "create react project",
+      description: "create react project c",
+    },
+    {
+      id: 3,
+      title: "Engineer",
+      description: "create react project c",
+    },
+    {
+      id: 3,
+      title: "Engineer",
+      description: "create react project c",
+    },
+    {
+      id: 3,
+      title: "Engineer",
+      description: "create react project c",
+    },
+    {
+      id: 3,
+      title: "Engineer",
+      description: "create react project c",
+    },
+    {
+      id: 3,
+      title: "Engineer",
+      description: "create react project c",
+    },
+    {
+      id: 3,
+      title: "Engineer",
+      description: "create react project c",
+    },
+    {
+      id: 3,
+      title: "Engineer",
+      description: "create react project c",
+    },
+    {
+      id: 3,
+      title: "Engineer",
+      description: "create react project c",
+    },
+    {
+      id: 3,
+      title: "Engineer",
+      description: "create react project c",
+    },
+    {
+      id: 3,
+      title: "Engineer",
+      description: "create react project c",
+    },
+    {
+      id: 3,
+      title: "Engineer",
+      description: "create react project c",
+    },
+    {
+      id: 3,
+      title: "Engineer",
+      description: "create react project c",
+    },
+    {
+      id: 3,
+      title: "Engineer",
+      description: "create react project c",
+    },
+    {
+      id: 3,
+      title: "Engineer",
+      description: "create react project c",
     },
   ];
-  //   const dispatch = useDispatch();
-  //   const todos = useSelector((state) => state.todos);
-  //   useEffect(() => {
-  //     dispatch(getTodosAsync());
-  //   }, [dispatch]);
+  const columns = React.useMemo(
+    () => [
+      {
+        Header: "Search Results List",
+        columns: [
+          {
+            Header: "ID",
+            accessor: "id",
+          },
+          {
+            Header: "Title",
+            accessor: "title",
+          },
+          {
+            Header: "Description",
+            accessor: "description",
+          },
+        ],
+      },
+    ],
+    []
+  );
+
+  // const data = React.useMemo(() => searchresults, []);
 
   return (
     <>
       {/* // search element */}
       <div className="border border-dark mt-4 p-3 rounded-3">
-        <ul className="list-group">
-          {todos.map((todo) => (
-            <SearchResultListItem key={todo.id} todo={todo} />
-          ))}
-        </ul>
+        {/* <h1>SearchResultList</h1> */}
+        <Table columns={columns} data={searchresults} />
       </div>
     </>
   );
